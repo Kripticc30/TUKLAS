@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <title>Tungkol sa TUKLAS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Volkhov', serif;
+            background: linear-gradient(180deg, #cfd9df 0%, #f6e7d7 60%, #ffd89b 100%);
+            margin: 0;
+            color: #2a0845;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-container {
+            width: 1200px;
+            min-height: 600px;
+            border-radius: 18px;
+            padding: 40px 60px;
+            position: relative;
+            background: url('haha library go brrrrrrrrr.png') center/cover no-repeat;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 18px;
+            background: rgba(0,0,0,0.32);
+            z-index: 0;
+        }
+        .about-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+        h1 {
+            font-size: 2.7em;
+            margin-bottom: 24px;
+            text-align: center;
+            letter-spacing: 2px;
+            color: #000;
+            text-shadow: none;
+        }
+        p, ul {
+            font-size: 1.25em;
+            color: #fffbe7;
+            text-shadow: 0 1px 4px #000;
+        }
+        ul {
+            margin: 10px 0 10px 24px;
+            padding: 0;
+        }
+        a.back-link {
+            display: inline-block;
+            margin-bottom: 28px;
+            color: #fffbe7;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.2s;
+            text-shadow: 0 1px 4px #000;
+        }
+        a.back-link:hover {
+            color: #ffd89b;
+            text-decoration: underline;
+        }
+        .highlight {
+            color: #ffd89b;
+            font-weight: bold;
+        }
+        @media (max-width: 1000px) {
+            .about-container {
+                width: 98vw;
+                padding: 20px 10vw;
+            }
+        }
+        @media (max-width: 600px) {
+            .about-container {
+                width: 100vw;
+                min-height: 100vh;
+                border-radius: 0;
+                padding: 16px 8px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            p, ul {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <div class="about-content">
+            <a href="index.html" class="back-link" aria-label="Bumalik sa homepage">&larr; Bumalik</a>
+            <h1>Tungkol sa TUKLAS</h1>
+            <p style="font-size:1.13em; margin-bottom:8px; font-weight:bold;">
+                <b>Kahulugan ng TUKLAS:</b> <br>
+                <span class="highlight">Talino at Unawa, Kaalaman at Layunin, Aral sa bawat Salita</span>
+            </p>
+            <p style="margin-top:32px;">
+                Ang Tuklas ay isang educational platform na nilikha upang makatulong sa pagpapaunlad ng talasalitaan ng mga mag-aaral sa pagbasa ng maikling kuwento. Layunin nitong mapalalim ang kasanayan sa wika at mapahusay ang kritikal na pag-unawa ng mga mag-aaral sa pamamagitan ng makabagong pamamaraan ng pagkatuto.
+            </p>
+            <p style="font-size:1.13em; margin-bottom:8px; font-weight:bold;">Mga Tampok:</p>
+            <ul>
+                <li>Pagpapalawak ng talasalitaan gamit ang mga piling salita mula sa maikling kuwento</li>
+                <li>Mga interaktibong aktibidad para sa mas malalim na pag-unawa</li>
+                <li>Makabagong paraan ng pagkatuto gamit ang teknolohiya</li>
+                <li>Pagsasanay sa kritikal na pag-iisip at pagsusuri ng binasang teksto</li>
+                <li>Madaling gamitin at angkop para sa mga mag-aaral</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

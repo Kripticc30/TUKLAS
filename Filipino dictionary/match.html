@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TUKLAS Matching Game</title>
+    <style>
+    body {
+        font-family: 'Segoe UI', 'Georgia', 'Times', serif;
+        background: linear-gradient(180deg, #cfd9df 0%, #f6e7d7 60%, #ffd89b 100%);
+        margin: 0;
+        color: #2a0845;
+        min-height: 100vh;
+    }
+    .quiz-container {
+        max-width: 600px;
+         max-width: 1200px;
+            height: 600px;
+        margin: 60px auto;
+        background: url('haha library go brrrrrrrrr.png') center/cover no-repeat;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px 0 rgba(185,108,240,0.18);
+        padding: 48px 40px;
+        position: relative;
+        overflow: hidden;
+    }
+    .quiz-container::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        border-radius: 18px;
+        background: rgba(30,30,30,0.4);
+        z-index: 0;
+        pointer-events: none;
+    }
+    .quiz-container > * {
+        position: relative;
+        z-index: 1;
+    }
+    h1 {
+        font-size: 2.2em;
+        margin-bottom: 24px;
+        text-align: center;
+        color: #ffd700;
+        text-shadow: 0 2px 12px #000, 0 0 8px #4169e1;
+    }
+    .question {
+        font-size: 1.3em;
+        margin-bottom: 18px;
+        color: #87cefa;
+        text-shadow: 0 1px 6px #000;
+    }
+    .column-title {
+        color: #87ceeb; /* sky blue */
+        font-weight: bold;
+        font-size: 1.1em;
+        margin-bottom: 6px;
+    }
+    .score {
+        font-size: 1.2em;
+        color: #ffd700;
+        margin-top: 24px;
+        text-align: center;
+    }
+    .next-btn {
+        margin-top: 24px;
+        background: #4169e1;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 24px;
+        font-size: 1.1em;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 2px 8px #000;
+        transition: background 0.2s;
+    }
+    .next-btn:hover {
+        background: #ffd700;
+        color: #191970;
+    }
+    a.back-link {
+        display: inline-block;
+        margin-bottom: 28px;
+        color: #ffd700;
+        text-decoration: none;
+        font-size: 1.1em;
+        font-weight: bold;
+        text-shadow: 0 1px 6px #000;
+        transition: color 0.2s;
+    }
+    a.back-link:hover {
+        color: #87cefa;
+        text-decoration: underline;
+    }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <a href="games.html" class="back-link">&larr; Bumalik</a>
+        <h1>TUKLAS Matching Game</h1>
+        <div id="match"></div>
+        <div class="score" id="score"></div>
+    </div>
+    <script>
+        const matchPairs = [
+            { left: "Karunungan", right: "Wisdom" },
+            { left: "Panukalang", right: "Proposal" },
+            { left: "Sumupil", right: "Suppress" },
+            { left: "Tighaw", right: "Quench" },
+            { left: "Kariktan", right: "Beauty" },
+            { left: "Naulinig", right: "Heard faintly" },
+            { left: "Katabilan", right: "Talkativeness" },
+            { left: "Kabi", right: "Shoulder pole" },
+            { left: "Kalupitan", right: "Cruelty" },
+            { left: "Kabuluhan", right: "Significance" }
+        ];
+        let matchScore = 0;
+        function showMatch() {
+            let html = `<div class='question'>Match the Filipino word to its English meaning:</div><div style='display:flex; gap:24px; justify-content:center;'>`;
+            html += `<div><span class='column-title'>Filipino</span><br>`;
+            matchPairs.forEach((pair, i) => {
+                html += `<div><button class='choice-btn' onclick='selectMatchLeft(${i})' id='matchLeft${i}'>${pair.left}</button></div>`;
+            });
+            html += `</div><div><span class='column-title'>English</span><br>`;
+            matchPairs.forEach((pair, i) => {
+                html += `<div><button class='choice-btn' onclick='selectMatchRight(${i})' id='matchRight${i}'>${pair.right}</button></div>`;
+            });
+            html += `</div></div>`;
+            document.getElementById('match').innerHTML = html;
+            document.getElementById('score').textContent = `Score: ${matchScore} / ${matchPairs.length}`;
+        }
+        let selectedLeft = null;
+        function selectMatchLeft(i) { selectedLeft = i; }
+        function selectMatchRight(j) {
+            if (selectedLeft !== null) {
+                if (selectedLeft === j) {
+                    matchScore++;
+                    document.getElementById('score').textContent = `Correct! Score: ${matchScore} / ${matchPairs.length}`;
+                    document.getElementById('matchLeft'+selectedLeft).disabled = true;
+                    document.getElementById('matchRight'+j).disabled = true;
+                } else {
+                    document.getElementById('score').textContent = `Wrong! Score: ${matchScore} / ${matchPairs.length}`;
+                }
+                selectedLeft = null;
+            }
+            if (matchScore === matchPairs.length) {
+                document.getElementById('match').innerHTML += `<div class='question'>Game Finished!</div><button class='next-btn' onclick='restartMatch()'>Play Again</button>`;
+            }
+        }
+        function restartMatch() {
+            matchScore = 0;
+            showMatch();
+        }
+        showMatch();
+    </script>
+</body>
+</html>

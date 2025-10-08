@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TUKLAS Fill in the Blank</title>
+    <style>
+    body { font-family: 'Segoe UI', 'Georgia', 'Times', serif; background: linear-gradient(180deg, #cfd9df 0%, #f6e7d7 50%, #ffd89b 100%); margin: 0; color: #f8f8ff; min-height: 100vh; }
+    .quiz-container {
+        max-width: 600px;
+         max-width: 1200px;
+            height: 600px;
+        margin: 60px auto;
+        background: url('haha library go brrrrrrrrr.png') center/cover no-repeat;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px 0 rgba(0,0,32,0.7);
+        padding: 48px 40px;
+        border: none;
+        position: relative;
+        overflow: hidden;
+    }
+    .quiz-container::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        border-radius: 18px;
+        background: rgba(30,30,30,0.4); /* dim effect */
+        z-index: 0;
+        pointer-events: none;
+    }
+    .quiz-container > * {
+        position: relative;
+        z-index: 1;
+    }
+    h1 { font-size: 2.2em; margin-bottom: 24px; text-align: center; color: #ffd700; text-shadow: 0 2px 12px #000, 0 0 8px #4169e1; }
+    .question { font-size: 1.3em; margin-bottom: 18px; color: #87cefa; text-shadow: 0 1px 6px #000; }
+    .score { font-size: 1.2em; color: #ffd700; margin-top: 24px; text-align: center; }
+    .next-btn { margin-top: 24px; background: #4169e1; color: #fff; border: none; border-radius: 8px; padding: 10px 24px; font-size: 1.1em; cursor: pointer; font-weight: bold; box-shadow: 0 2px 8px #000; transition: background 0.2s; }
+    .next-btn:hover { background: #ffd700; color: #191970; }
+    a.back-link { display: inline-block; margin-bottom: 28px; color: #ffd700; text-decoration: none; font-size: 1.1em; font-weight: bold; text-shadow: 0 1px 6px #000; transition: color 0.2s; }
+    a.back-link:hover { color: #87cefa; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <a href="games.html" class="back-link">&larr; Bumalik</a>
+        <h1>TUKLAS Fill in the Blank</h1>
+        <div id="fill"></div>
+        <div class="score" id="score"></div>
+    </div>
+    <script>
+        const fillQuestions = [
+            { question: "_____ means 'Wisdom' in Filipino.", answer: "Karunungan" },
+            { question: "_____ means 'Proposal' in Filipino.", answer: "Panukalang" },
+            { question: "_____ means 'Suppress' in Filipino.", answer: "Sumupil" },
+            { question: "_____ means 'Quench' in Filipino.", answer: "Tighaw" },
+            { question: "_____ means 'Beauty' in Filipino.", answer: "Kariktan" },
+            { question: "_____ means 'Heard faintly' in Filipino.", answer: "Naulinig" },
+            { question: "_____ means 'Talkativeness' in Filipino.", answer: "Katabilan" },
+            { question: "_____ means 'Shoulder pole' in Filipino.", answer: "Kabi" },
+            { question: "_____ means 'Cruelty' in Filipino.", answer: "Kalupitan" },
+            { question: "_____ means 'Significance' in Filipino.", answer: "Kabuluhan" }
+        ];
+        let current = 0, score = 0;
+        let randomized = [];
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        function startFill() {
+            randomized = [...fillQuestions];
+            shuffle(randomized);
+            current = 0;
+            score = 0;
+            showFill();
+        }
+        function showFill() {
+            const q = randomized[current];
+            let html = `<div class='question'>${q.question}</div><input type='text' id='fillInput' style='font-size:1.1em; padding:8px; border-radius:6px; border:none; margin-bottom:12px;'> <button class='next-btn' onclick='checkFillAnswer()'>Submit</button>`;
+            document.getElementById('fill').innerHTML = html;
+            document.getElementById('score').textContent = `Score: ${score} / ${randomized.length}`;
+        }
+        function checkFillAnswer() {
+            const q = randomized[current];
+            const val = document.getElementById('fillInput').value.trim();
+            if (val.toLowerCase() === q.answer.toLowerCase()) {
+                score++;
+                document.getElementById('score').textContent = `Correct! Score: ${score} / ${randomized.length}`;
+            } else {
+                document.getElementById('score').textContent = `Wrong! Score: ${score} / ${randomized.length}`;
+            }
+            setTimeout(nextFillQuestion, 900);
+        }
+        function nextFillQuestion() {
+            current++;
+            if (current < randomized.length) {
+                showFill();
+            } else {
+                document.getElementById('fill').innerHTML = `<div class='question'>Game Finished!</div><button class='next-btn' onclick='startFill()'>Play Again</button>`;
+                document.getElementById('score').textContent = `Final Score: ${score} / ${randomized.length}`;
+            }
+        }
+        // Start fill in the blank with random questions
+        startFill();
+    </script>
+</body>
+</html>

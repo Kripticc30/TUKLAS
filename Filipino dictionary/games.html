@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TUKLAS Games</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Georgia', 'Times', serif;
+            background: linear-gradient(180deg, #cfd9df 0%, #f6e7d7 60%, #ffd89b 100%);
+            margin: 0;
+            color: #2a0845;
+            min-height: 100vh;
+        }
+        .games-bg-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            background: url('haha library go brrrrrrrrr.png') center/cover no-repeat;
+            border-radius: 32px;
+            box-shadow: 0 8px 32px 0 rgba(185,108,240,0.18);
+            padding: 48px 40px 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .games-bg-container::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 32px;
+            background: rgba(30,30,30,0.4); /* dim effect */
+            z-index: 0;
+            pointer-events: none;
+        }
+        .games-bg-container > * {
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 2.7em;
+            margin-bottom: 28px;
+            text-align: center;
+            letter-spacing: 2px;
+            color: #ffd700; /* yellow */
+            text-shadow: none;
+        }
+        .game-icons-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+        .game-card {
+            background: none;
+            border-radius: 18px;
+            box-shadow: none;
+            padding: 24px 32px 18px 32px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .game-card:hover {
+            transform: translateY(-8px) scale(1.07);
+            box-shadow: 0 8px 32px #000;
+        }
+        .game-card a {
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 2px 6px #000);
+        }
+        .label {
+            font-size: 1.25em;
+            font-weight: bold;
+            background: #fff;
+            color: #4169e1;
+            border-radius: 8px;
+            padding: 4px 18px;
+            box-shadow: 0 2px 8px #000;
+            margin-top: 2px;
+            text-shadow: none;
+        }
+        .score {
+            font-size: 1.2em;
+            color: #ffd700;
+            margin-top: 24px;
+            text-align: center;
+        }
+        .next-btn {
+            margin-top: 24px;
+            background: #4169e1;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 24px;
+            font-size: 1.1em;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 8px #000;
+            transition: background 0.2s;
+        }
+        .next-btn:hover {
+            background: #ffd700;
+            color: #191970;
+        }
+        a.back-link {
+            display: inline-block;
+            margin-bottom: 28px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-shadow: none;
+            transition: color 0.2s;
+        }
+        a.back-link:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="games-bg-container">
+        <a href="index.html" class="back-link">&larr; Bumalik</a>
+        <h1>TUKLAS Games</h1>
+        <div class="game-icons-row">
+            <div class="game-card">
+                <a href="quiz.html" title="Quiz">
+                    <div class="icon">🧠</div>
+                    <div class="label">Quiz</div>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="fill.html" title="Fill in the Blank">
+                    <div class="icon">📝</div>
+                    <div class="label">Fill</div>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="match.html" title="Matching">
+                    <div class="icon">🧩</div>]'[
+                    ]'
+                    <div class="label">Match</div>
+                </a>
+            </div>
+            <div class="game-card">
+                <a href="flash.html" title="Flashcards">
+                    <div class="icon">📇</div>
+                    <div class="label">Flashcards</div>
+                </a>
+            </div>
+        </div>
+        <div style="margin:32px 0; font-size:1.15em; color:#ffd700; text-shadow:0 1px 6px #000; text-align:center;">
+            Maligayang pagdating sa TUKLAS Games! Sumisid sa mundo ng saya at pagkatuto—hamunin ang iyong sarili, palawakin ang iyong bokabularyong Filipino, at tuklasin ang mga bagong salita sa pamamagitan ng mga interaktibong laro. Piliin ang laro sa itaas at simulan ang iyong paglalakbay kasama ang TUKLAS!
+        </div>
+    </div>
+</body>
+</html>
