@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diksiyonaryo</title>
+    <!-- Google Fonts: Volkhov SemiBold (600) -->
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov:wght@600&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            font-family: 'Volkhov', serif;
+            font-weight: 600;
+            background: linear-gradient(180deg, #cfd9df 0%, #f6e7d7 60%, #ffd89b 100%);
+            margin: 0;
+            color: #2a0845;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .dictionary-container {
+            width: 90vw;
+            max-width: 1200px;
+            height: 600px;
+            overflow-y: auto;
+            background: url('haha library go brrrrrrrrr.png') center/cover no-repeat;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(185, 108, 240, 0.4);
+            padding: 32px 32px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .dictionary-container::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 160%;
+            border-radius: 18px;
+            background: rgba(0,0,0,0.45);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .dictionary-container > * {
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 2px;
+            color: #000;
+            text-shadow: none;
+            font-weight: 600;
+            font-family: 'Volkhov', serif;
+        }
+        dl {
+            margin-top: 20px;
+        }
+        dt {
+            font-weight: 600;
+            margin-top: 14px;
+            font-size: 1.1em;
+            color: #87cefa;
+            text-shadow: 0 1px 6px #000;
+            font-family: 'Volkhov', serif;
+        }
+        dd {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #fff;
+            text-shadow: none;
+            font-weight: 600;
+            font-family: 'Volkhov', serif;
+        }
+        a.back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 600;
+            text-shadow: none;
+            transition: color 0.2s;
+            font-family: 'Volkhov', serif;
+        }
+        a.back-link:hover {
+            color: #87cefa;
+            text-decoration: underline;
+        }
+        .speak-btn {
+            background: linear-gradient(135deg, #ffd700 0%, #4169e1 100%);
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            margin-left: 8px;
+            vertical-align: middle;
+            border-radius: 50%;
+            padding: 5px 8px;
+            box-shadow: 0 2px 8px #000;
+            transition: background 0.2s, transform 0.2s;
+            font-family: 'Volkhov', serif;
+            font-weight: 600;
+        }
+        .speak-btn:focus, .speak-btn:hover {
+            outline: 2px solid #ffd700;
+            background: linear-gradient(135deg, #4169e1 0%, #ffd700 100%);
+            transform: scale(1.15);
+        }
+        @media (max-width: 600px) {
+            .dictionary-container {
+                width: 98vw;
+                max-width: 98vw;
+                height: 98vh;
+                padding: 12px 4vw;
+            }
+            h1 {
+                font-size: 1.3em;
+            }
+            dt, dd {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dictionary-container">
+        <a href="index.html" class="back-link">&larr; Bumalik</a>
+        <h1 style="color:#000; font-weight:600; font-family:'Volkhov',serif;">Diksiyonaryo</h1>
+        <dl>
+            <dt style="font-weight:600; font-family:'Volkhov',serif;">Karunungan</dt>
+            <dd><span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">kaalaman; dunong; malalim na pagkaunawa.<br>
+            <i style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Halimbawa:</i> <span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Ang karunungan na nakuha niya sa pagbabasa ay nagsilbing gabay sa kanyang buhay.</span></span></dd>
+            <dt style="font-weight:600; font-family:'Volkhov',serif;">Panukalang</dt>
+            <dd><span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">balak; plano; mungkahi.<br>
+            <i style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Halimbawa:</i> <span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Ipinresenta ng guro ang panukalang proyekto para sa susunod na buwan.</span></span></dd>
+            <dt style="font-weight:600; font-family:'Volkhov',serif;">Sumupil</dt>
+            <dd><span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">pumigil; nagpasuko; pagpigil sa kilos o gawa.<br>
+            <i style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Halimbawa:</i> <span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Sumupil ang pulis sa kaguluhan sa lansangan.</span></span></dd>
+            <dt style="font-weight:600; font-family:'Volkhov',serif;">Tighaw</dt>
+            <dd><span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">pagpawi ng uhaw o gutom; pagtigil ng nadaramang pangangailangan.<br>
+            <i style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Halimbawa:</i> <span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Isang basong malamig na tubig ang tighaw sa kanyang uhaw matapos maglaro.</span></span></dd>
+            <dt style="font-weight:600; font-family:'Volkhov',serif;">Kariktan</dt>
+            <dd><span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">kagandahan; kadakilaan ng anyo o ganda.<br>
+            <i style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Halimbawa:</i> <span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Namangha siya sa kariktan ng bulaklak sa hardin.</span></span></dd>
+            <dt style="font-weight:600; font-family:'Volkhov',serif;">Naulinig</dt>
+            <dd><span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">narinig, kadalasa’y pabulong o hindi tuwirang malinaw.<br>
+            <i style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Halimbawa:</i> <span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Naulinig niya ang usapan ng dalawang mag-aaral sa likuran.</span></span></dd>
+            <dt style="font-weight:600; font-family:'Volkhov',serif;">Katabilan</dt>
+            <dd><span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">kadaldalan; pagiging masalita o madaldal.<br>
+            <i style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Halimbawa:</i> <span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Ang kanyang katabilan ay madalas na nakakaaliw sa kanyang mga kaklase.</span></span></dd>
+            <dt style="font-weight:600; font-family:'Volkhov',serif;">Kabi</dt>
+            <dd><span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">gilid ng labi.<br>
+            <i style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Halimbawa:</i> <span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">May mantsa ng tsokolate sa kabi ng kanyang bibig.</span></span></dd>
+            <dt style="font-weight:600; font-family:'Volkhov',serif;">Kalupitan</dt>
+            <dd><span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">kabagsikan; karahasan; kawalan ng awa.<br>
+            <i style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Halimbawa:</i> <span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Lubhang ikinagulat ng lahat ang kalupitan ng ginawa ng mga mananakop.</span></span></dd>
+            <dt style="font-weight:600; font-family:'Volkhov',serif;">Kabuluhan</dt>
+            <dd><span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">kahalagahan; saysay; kabulaanan ng isang bagay kung may pakinabang o kabuluhan.<br>
+            <i style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Halimbawa:</i> <span style="font-weight:600; color:#fff; font-family:'Volkhov',serif;">Ipinaliwanag ng guro ang kabuluhan ng pagbasa sa paghubog ng isipan.</span></span></dd>
+        </dl>
+    </div>
+    <script>
+    </script>
+</body>
+</html>

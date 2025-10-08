@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TUKLAS Quiz Game</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Georgia', 'Times', serif;
+            background: linear-gradient(180deg, #cfd9df 0%, #f6e7d7 50%, #ffd89b 100%);
+            margin: 0;
+            color: #2a0845;
+            min-height: 100vh;
+        }
+        .quiz-container {
+            width: 90vw;
+            max-width: 1200px;
+            height: 600px;
+            margin: 60px auto;
+            background: url('haha library go brrrrrrrrr.png') center/cover no-repeat;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(185,108,240,0.18);
+            padding: 48px 40px;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .quiz-container::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 18px;
+            background: rgba(30,30,30,0.4); /* dim effect */
+            z-index: 0;
+            pointer-events: none;
+        }
+        .quiz-container > * {
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 24px;
+            text-align: center;
+            color: #ffd700; /* yellow */
+            text-shadow: none;
+        }
+        .question {
+            font-size: 1.3em;
+            margin-bottom: 18px;
+            color: #87cefa;
+            text-shadow: 0 1px 6px #000;
+        }
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .choice-btn {
+            background: linear-gradient(135deg, #ffd700 0%, #4169e1 100%);
+            border: none;
+            border-radius: 8px;
+            color: #191970;
+            font-size: 1.1em;
+            padding: 12px 18px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 8px #000;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .choice-btn:hover {
+            background: linear-gradient(135deg, #4169e1 0%, #ffd700 100%);
+            transform: scale(1.07);
+        }
+        .score {
+            font-size: 1.2em;
+            color: #ffd700;
+            margin-top: 24px;
+            text-align: center;
+        }
+        .next-btn {
+            margin-top: 24px;
+            background: #4169e1;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 24px;
+            font-size: 1.1em;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 8px #000;
+            transition: background 0.2s;
+        }
+        .next-btn:hover {
+            background: #ffd700;
+            color: #191970;
+        }
+        a.back-link {
+            display: inline-block;
+            margin-bottom: 28px;
+            color: #ffd700;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-shadow: 0 1px 6px #000;
+            transition: color 0.2s;
+        }
+        a.back-link:hover {
+            color: #87cefa;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <a href="games.html" class="back-link">&larr; Bumalik</a>
+        <h1>TUKLAS Quiz Game</h1>
+        <div id="quiz"></div>
+        <div class="score" id="score"></div>
+    </div>
+    <script>
+        const questions = [
+            { question: "What is the meaning of 'Karunungan'?", choices: ["Wisdom", "Proposal", "Suppress", "Quench"], answer: 0 },
+            { question: "What is the meaning of 'Panukalang'?", choices: ["Beauty", "Proposal", "Cruelty", "Significance"], answer: 1 },
+            { question: "What is the meaning of 'Sumupil'?", choices: ["Suppress", "Shoulder pole", "Talkativeness", "Heard faintly"], answer: 0 },
+            { question: "What is the meaning of 'Tighaw'?", choices: ["Quench", "Wisdom", "Beauty", "Cruelty"], answer: 0 },
+            { question: "What is the meaning of 'Kariktan'?", choices: ["Significance", "Beauty", "Proposal", "Wisdom"], answer: 1 },
+            { question: "What is the meaning of 'Naulinig'?", choices: ["Heard faintly", "Talkativeness", "Shoulder pole", "Suppress"], answer: 0 },
+            { question: "What is the meaning of 'Katabilan'?", choices: ["Talkativeness", "Cruelty", "Quench", "Wisdom"], answer: 0 },
+            { question: "What is the meaning of 'Kabi'?", choices: ["Shoulder pole", "Significance", "Beauty", "Proposal"], answer: 0 },
+            { question: "What is the meaning of 'Kalupitan'?", choices: ["Cruelty", "Wisdom", "Suppress", "Quench"], answer: 0 },
+            { question: "What is the meaning of 'Kabuluhan'?", choices: ["Significance", "Beauty", "Proposal", "Wisdom"], answer: 0 }
+        ];
+        let current = 0, score = 0;
+        let randomized = [];
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+        function startQuiz() {
+            randomized = [...questions];
+            shuffle(randomized);
+            current = 0;
+            score = 0;
+            showQuestion();
+        }
+        function showQuestion() {
+            const q = randomized[current];
+            let html = `<div class='question'>${q.question}</div><div class='choices'>`;
+            q.choices.forEach((choice, i) => {
+                html += `<button class='choice-btn' onclick='checkAnswer(${i})'>${choice}</button>`;
+            });
+            html += `</div>`;
+            document.getElementById('quiz').innerHTML = html;
+            document.getElementById('score').textContent = `Score: ${score} / ${randomized.length}`;
+        }
+        function checkAnswer(selected) {
+            const q = randomized[current];
+            if (selected === q.answer) {
+                score++;
+                document.getElementById('score').textContent = `Correct! Score: ${score} / ${randomized.length}`;
+            } else {
+                document.getElementById('score').textContent = `Wrong! Score: ${score} / ${randomized.length}`;
+            }
+            setTimeout(nextQuestion, 900);
+        }
+        function nextQuestion() {
+            current++;
+            if (current < randomized.length) {
+                showQuestion();
+            } else {
+                document.getElementById('quiz').innerHTML = `<div class='question'>Quiz Finished!</div><button class='next-btn' onclick='startQuiz()'>Play Again</button>`;
+                document.getElementById('score').textContent = `Final Score: ${score} / ${randomized.length}`;
+            }
+        }
+        // Start quiz with random questions
+        startQuiz();
+    </script>
+</body>
+</html>

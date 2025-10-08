@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TUKLAS Flashcards</title>
+    <style>
+    body { 
+        font-family: 'Segoe UI', 'Georgia', 'Times', serif; 
+        background: linear-gradient(180deg, #cfd9df 0%, #f6e7d7 60%, #ffd89b 100%);
+        margin: 0; 
+        color: #2a0845; 
+        min-height: 100vh; 
+    }
+    .quiz-container { 
+        max-width: 600px; 
+        max-width: 1200px;
+            height: 600px;
+        margin: 60px auto; 
+        background: url('haha library go brrrrrrrrr.png') center/cover no-repeat;
+        border-radius: 18px; 
+        box-shadow: 0 8px 32px 0 rgba(185,108,240,0.18);
+        padding: 48px 40px; 
+        /* border removed */
+        position: relative; 
+        overflow: hidden;
+    }
+    .quiz-container::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        border-radius: 18px;
+        background: rgba(30,30,30,0.4); /* dim effect */
+        z-index: 0;
+        pointer-events: none;
+    }
+    .quiz-container > * {
+        position: relative;
+        z-index: 1;
+    }
+    h1 { 
+        font-size: 2.2em; 
+        margin-bottom: 24px; 
+        text-align: center; 
+        color: #ffd700; 
+        text-shadow: 0 2px 12px #000, 0 0 8px #4169e1; 
+    }
+    .question { 
+        font-size: 1.3em; 
+        margin-bottom: 18px; 
+        color: #87cefa; 
+        text-shadow: 0 1px 6px #000; 
+    }
+    .score { 
+        font-size: 1.2em; 
+        color: #ffd700; 
+        margin-top: 24px; 
+        text-align: center; 
+    }
+    .next-btn { 
+        margin-top: 24px; 
+        background: #4169e1; 
+        color: #fff; 
+        border: none; 
+        border-radius: 8px; 
+        padding: 10px 24px; 
+        font-size: 1.1em; 
+        cursor: pointer; 
+        font-weight: bold; 
+        box-shadow: 0 2px 8px #000; 
+        transition: background 0.2s; 
+    }
+    .next-btn:hover { 
+        background: #ffd700; 
+        color: #191970; 
+    }
+    a.back-link { 
+        display: inline-block; 
+        margin-bottom: 28px; 
+        color: #ffd700; 
+        text-decoration: none; 
+        font-size: 1.1em; 
+        font-weight: bold; 
+        text-shadow: 0 1px 6px #000; 
+        transition: color 0.2s; 
+    }
+    a.back-link:hover { 
+        color: #87cefa; 
+        text-decoration: underline; 
+    }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <a href="games.html" class="back-link">&larr; Bumalik</a>
+        <h1>TUKLAS Flashcards</h1>
+        <div id="flash"></div>
+        <div class="score" id="score"></div>
+    </div>
+    <script>
+        const flashcards = [
+            { word: "Karunungan", meaning: "Wisdom" },
+            { word: "Panukalang", meaning: "Proposal" },
+            { word: "Sumupil", meaning: "Suppress" },
+            { word: "Tighaw", meaning: "Quench" },
+            { word: "Kariktan", meaning: "Beauty" },
+            { word: "Naulinig", meaning: "Heard faintly" },
+            { word: "Katabilan", meaning: "Talkativeness" },
+            { word: "Kabi", meaning: "Shoulder pole" },
+            { word: "Kalupitan", meaning: "Cruelty" },
+            { word: "Kabuluhan", meaning: "Significance" }
+        ];
+        let current = 0;
+        function showFlash() {
+            const card = flashcards[current];
+            let html = `<div class='question'>Filipino: <strong>${card.word}</strong></div><button class='next-btn' onclick='showFlashMeaning()'>Show Meaning</button>`;
+            document.getElementById('flash').innerHTML = html;
+            document.getElementById('score').textContent = `Card: ${current+1} / ${flashcards.length}`;
+        }
+        function showFlashMeaning() {
+            const card = flashcards[current];
+            let html = `<div class='question'>Filipino: <strong>${card.word}</strong></div><div class='question'>English: <strong>${card.meaning}</strong></div><button class='next-btn' onclick='nextFlash()'>Next</button>`;
+            document.getElementById('flash').innerHTML = html;
+            document.getElementById('score').textContent = `Card: ${current+1} / ${flashcards.length}`;
+        }
+        function nextFlash() {
+            current++;
+            if (current < flashcards.length) {
+                showFlash();
+            } else {
+                document.getElementById('flash').innerHTML = `<div class='question'>Flashcards Finished!</div><button class='next-btn' onclick='restartFlash()'>Play Again</button>`;
+                document.getElementById('score').textContent = `Finished!`;
+            }
+        }
+        function restartFlash() {
+            current = 0;
+            showFlash();
+        }
+        showFlash();
+    </script>
+</body>
+</html>
