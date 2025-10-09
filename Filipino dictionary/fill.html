@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TUKLAS Fill in the Blank</title>
     <style>
     body { font-family: 'Segoe UI', 'Georgia', 'Times', serif; background: linear-gradient(180deg, #cfd9df 0%, #f6e7d7 50%, #ffd89b 100%); margin: 0; color: #f8f8ff; min-height: 100vh; }
     .quiz-container {
-        max-width: 600px;
-         max-width: 1200px;
-            height: 600px;
-        margin: 60px auto;
+        max-width: 1200px;
+        width: 100%;
+        min-height: 600px;
+        margin: 40px auto;
         background: url('haha library go brrrrrrrrr.png') center/cover no-repeat;
         border-radius: 18px;
         box-shadow: 0 8px 32px 0 rgba(0,0,32,0.7);
-        padding: 48px 40px;
+        padding: 28px 20px;
         border: none;
         position: relative;
         overflow: hidden;
@@ -34,7 +35,11 @@
     h1 { font-size: 2.2em; margin-bottom: 24px; text-align: center; color: #ffd700; text-shadow: 0 2px 12px #000, 0 0 8px #4169e1; }
     .question { font-size: 1.3em; margin-bottom: 18px; color: #87cefa; text-shadow: 0 1px 6px #000; }
     .score { font-size: 1.2em; color: #ffd700; margin-top: 24px; text-align: center; }
-    .next-btn { margin-top: 24px; background: #4169e1; color: #fff; border: none; border-radius: 8px; padding: 10px 24px; font-size: 1.1em; cursor: pointer; font-weight: bold; box-shadow: 0 2px 8px #000; transition: background 0.2s; }
+    .next-btn { margin-top: 18px; background: #4169e1; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 1em; cursor: pointer; font-weight: bold; box-shadow: 0 2px 8px #000; transition: background 0.2s; }
+    @media (max-width: 600px) {
+        .quiz-container { margin: 20px 8px; padding: 14px; border-radius: 12px; }
+        h1 { font-size: 1.6em; }
+    }
     .next-btn:hover { background: #ffd700; color: #191970; }
     a.back-link { display: inline-block; margin-bottom: 28px; color: #ffd700; text-decoration: none; font-size: 1.1em; font-weight: bold; text-shadow: 0 1px 6px #000; transition: color 0.2s; }
     a.back-link:hover { color: #87cefa; text-decoration: underline; }

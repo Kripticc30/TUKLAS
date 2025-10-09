@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TUKLAS Matching Game</title>
     <style>
     body {
@@ -12,14 +13,14 @@
         min-height: 100vh;
     }
     .quiz-container {
-        max-width: 600px;
-         max-width: 1200px;
-            height: 600px;
-        margin: 60px auto;
+        max-width: 1200px;
+        width: 100%;
+        min-height: 600px;
+        margin: 40px auto;
         background: url('haha library go brrrrrrrrr.png') center/cover no-repeat;
         border-radius: 18px;
         box-shadow: 0 8px 32px 0 rgba(185,108,240,0.18);
-        padding: 48px 40px;
+        padding: 28px 20px;
         position: relative;
         overflow: hidden;
     }
@@ -31,6 +32,10 @@
         background: rgba(30,30,30,0.4);
         z-index: 0;
         pointer-events: none;
+    }
+    @media (max-width: 600px) {
+        .quiz-container { margin: 20px 8px; padding: 14px; border-radius: 12px; }
+        h1 { font-size: 1.6em; }
     }
     .quiz-container > * {
         position: relative;

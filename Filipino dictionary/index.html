@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TUKLAS</title>
     <link href="https://fonts.googleapis.com/css2?family=Volkhov:wght@600&display=swap" rel="stylesheet">
     <style>
@@ -17,8 +18,9 @@
             justify-content: center;
         }
         .about-container {
-            width: 1200px;
-            height: 600px;
+            max-width: 1200px;
+            width: 100%;
+            min-height: 600px;
             background: url('library haha.png') center/cover no-repeat;
             border-radius: 18px;
             box-shadow: 0 4px 32px rgba(0,0,0,0.12);
@@ -87,6 +89,16 @@
     </style>
 </head>
 <body>
+    <!-- Beta notice modal -->
+    <div id="beta-modal" aria-hidden="false" style="display:block;">
+        <div class="beta-overlay"></div>
+        <div class="beta-dialog" role="dialog" aria-labelledby="beta-title" aria-modal="true">
+            <h2 id="beta-title">Notice</h2>
+            <p>Please consider that this website is still on beta, thank you</p>
+            <button id="beta-ok">OK</button>
+        </div>
+    </div>
+
     <div class="header">
         <h1>TUKLAS</h1>
     </div>
@@ -94,10 +106,66 @@
         <div class="top-nav">
             <a href="dictionary.html">Diksiyonaryo</a>
             <a href="about.html">Tungkol</a>
-        <a href="florante at laura.html">Florante at Laura</a>
+            <a href="florante-at-laura.html">Florante at Laura</a>
             <a href="games.html">Mga Laro</a>
         </div>
         <!-- Minimal content to avoid scrolling -->
     </div>
 </body>
+    <style>
+        /* Beta modal styles */
+        .beta-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 9998;
+        }
+        .beta-dialog {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fffbe7;
+            color: #2a0845;
+            padding: 22px 28px;
+            border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+            z-index: 9999;
+            max-width: 90vw;
+            width: 420px;
+            text-align: center;
+            font-family: 'Volkhov', serif;
+        }
+        .beta-dialog h2 { margin: 0 0 8px 0; }
+        .beta-dialog p { margin: 0 0 18px 0; color: #2a0845; }
+        #beta-ok {
+            background: #2a0845;
+            color: #fffbe7;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 auto; /* center inside text-align center */
+        }
+        #beta-ok:focus { outline: 3px solid rgba(42,8,69,0.2); }
+    </style>
+
+    <script>
+        // Show modal on load and close when OK clicked
+        (function(){
+            var modal = document.getElementById('beta-modal');
+            var ok = document.getElementById('beta-ok');
+            if(!modal || !ok) return;
+            ok.addEventListener('click', function(){
+                modal.style.display = 'none';
+                modal.setAttribute('aria-hidden','true');
+            });
+            // Allow closing with Enter or Space when focused
+            ok.addEventListener('keydown', function(e){
+                if(e.key === 'Enter' || e.key === ' ') ok.click();
+            });
+        })();
+    </script>
 </html>

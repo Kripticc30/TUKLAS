@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Maikling Kwento</title>
     <!-- Google Fonts: Volkhov SemiBold (600) -->
     <link href="https://fonts.googleapis.com/css2?family=Volkhov:wght@600&display=swap" rel="stylesheet">
@@ -26,12 +27,13 @@
         }
         .sanaysay-container {
             max-width: 1200px;
-            height: 600px;
-            margin: auto;
+            width: 100%;
+            min-height: 600px;
+            margin: 24px auto;
             background: url('haha library go brrrrrrrrr.png') center/cover no-repeat;
             border-radius: 18px;
             box-shadow: 0 8px 32px 0 rgba(30, 30, 30, 0.18);
-            padding: 48px 56px;
+            padding: 28px 24px;
             border: none;
             position: relative;
             font-family: 'Volkhov', serif;
@@ -54,7 +56,7 @@
             z-index: 1;
         }
         h1 {
-            font-size: 2.3em;
+            font-size: 1.8em;
             margin-bottom: 24px;
             text-align: center;
             letter-spacing: 2px;
@@ -69,6 +71,9 @@
         p, ul, li, a, strong, em, i {
             font-family: 'Volkhov', serif !important;
             font-weight: 600 !important;
+            font-size: 1em;
+            line-height: 1.45;
+            color: #fff;
         }
         p, ul {
             font-size: 1.15em;
@@ -82,10 +87,10 @@
         }
         a.back-link {
             display: inline-block;
-            margin-bottom: 28px;
+            margin-bottom: 18px;
             color: #fff;
             text-decoration: none;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: 600;
             text-shadow: none;
             transition: color 0.2s;
@@ -94,6 +99,11 @@
         a.back-link:hover {
             color: #ffd700;
             text-decoration: underline;
+        }
+        @media (max-width: 700px) {
+            .sanaysay-container { padding: 18px 14px; border-radius: 0; min-height: 100vh; }
+            h1 { font-size: 1.4em; }
+            p { font-size: 0.98em; }
         }
     </style>
 </head>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TUKLAS Games</title>
     <style>
         body {
@@ -13,11 +14,12 @@
         }
         .games-bg-container {
             max-width: 1100px;
-            margin: 60px auto;
+            width: 100%;
+            margin: 32px auto;
             background: url('haha library go brrrrrrrrr.png') center/cover no-repeat;
             border-radius: 32px;
             box-shadow: 0 8px 32px 0 rgba(185,108,240,0.18);
-            padding: 48px 40px 60px 40px;
+            padding: 32px 20px 40px 20px;
             position: relative;
             overflow: hidden;
         }
@@ -45,8 +47,9 @@
         .game-icons-row {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin-bottom: 32px;
+            gap: 20px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
         }
         .game-card {
             background: none;
@@ -73,7 +76,7 @@
             filter: drop-shadow(0 2px 6px #000);
         }
         .label {
-            font-size: 1.25em;
+            font-size: 1.1em;
             font-weight: bold;
             background: #fff;
             color: #4169e1;
@@ -82,6 +85,11 @@
             box-shadow: 0 2px 8px #000;
             margin-top: 2px;
             text-shadow: none;
+        }
+        @media (max-width: 600px) {
+            .label { font-size: 1em; padding: 6px 12px; }
+            .icon { font-size: 2.4em; }
+            .game-card { padding: 18px; }
         }
         .score {
             font-size: 1.2em;
@@ -141,8 +149,7 @@
             </div>
             <div class="game-card">
                 <a href="match.html" title="Matching">
-                    <div class="icon">🧩</div>]'[
-                    ]'
+                    <div class="icon">🧩</div>
                     <div class="label">Match</div>
                 </a>
             </div>
